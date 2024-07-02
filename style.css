@@ -19,9 +19,10 @@ h1 {
 }
 
 img {
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
-    max-width: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 .header {
@@ -31,36 +32,55 @@ img {
 
 .imageContainer {
     width: 100%;
-    height: 30rem;
-    overflow: hidden;
-}
-
-.aboutMeContainer {
+    height: 100%;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .icons {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
-    padding-top: 2rem;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.seperator {
+    width: 0;
+    height: 0;
+    border-left: 100vw solid transparent;
+    border-bottom: 50vw solid white;
+    margin-top: -50vw;
 }
 
 .main {
-    padding: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 4rem;
+    padding: 1.5rem;
 }
 
+.aboutMeContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 .workContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-container {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 5fr));
+    row-gap: 1rem;
 }
 
 .project,
@@ -74,7 +94,7 @@ img {
 }
 
 .top {
-    flex: 3;
+    flex: 2;
     background-image: url("./assets/man_small.png");
     background-size: cover;
     background-position: center;
@@ -87,7 +107,7 @@ img {
 }
 
 .icon.small {
-    height: 1.4rem;
+    height: 1.5rem;
 }
 
 .bottom {
@@ -101,6 +121,10 @@ img {
     justify-content: space-between;
 }
 
+.project-description {
+    font-size: 1.2rem;
+}
+
 .footer {
     background-color: #bbccff;
     display: flex;
@@ -108,7 +132,7 @@ img {
 }
 
 .footer-info {
-    padding: 2rem 1rem;
+    padding: 2rem 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -118,4 +142,11 @@ img {
 
 .contact > * {
     font-size: 1rem;
+}
+
+@media (min-width: 1024px) {
+    .footer {
+        flex-direction: row;
+        padding: 4rem;
+    }
 }
