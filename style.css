@@ -4,6 +4,9 @@ html {
     padding: 0;
 }
 
+* {
+    box-sizing: border-box;
+}
 .text {
     font-size: 1.5rem;
 } 
@@ -27,7 +30,6 @@ img {
 
 .header {
     background-color: #bbccff;
-    padding: 2rem;
 }
 
 .imageContainer {
@@ -36,6 +38,21 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    text-align: left;
+    color: white;
+    text-shadow: .1rem .1rem .4rem black;
+}
+
+.header > .imageContainer {
+    padding: 2rem;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 1.5rem;
+    font-size: 4rem;
+    left: 2.5rem;
 }
 
 .icons {
@@ -47,7 +64,7 @@ img {
 }
 
 .seperator {
-    width: 0;
+    max-width: 100%;
     height: 0;
     border-left: 100vw solid transparent;
     border-bottom: 50vw solid white;
@@ -67,6 +84,8 @@ img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 2rem;
+    background-color: white;
 }
 
 .workContainer {
@@ -74,13 +93,14 @@ img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .project-container {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 5fr));
-    row-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 3fr));
+    gap: 1.5rem;
 }
 
 .project,
@@ -142,6 +162,51 @@ img {
 
 .contact > * {
     font-size: 1rem;
+}
+
+@media (min-width: 481px) {
+    .header {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .seperator {
+        grid-row: 1 / 4;
+        grid-column: 1 / 4;
+        transform: translateY(-50%);
+    }
+    .imageContainer {
+        position: relative;
+        grid-row: 1 / 3;
+        grid-column: 1 / 3;
+        z-index: 1;
+    }
+    .aboutMeContainer {
+        position: relative;
+        grid-row: 2 / 4;
+        grid-column: 2 / 4;
+        width: 90%;
+        height: 90%;
+    }
+
+    .footer {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+    }
+
+    .footer-info {
+        flex: 1;
+    }
+
+    .imageContainer {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
 }
 
 @media (min-width: 1024px) {
